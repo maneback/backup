@@ -96,14 +96,17 @@
 
 
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="YAML Ain’t a Markup Language.">
+<meta property="og:type" content="article">
 <meta property="og:title" content="yaml">
 <meta property="og:url" content="http://maneback.github.io/2018/yaml/index.html">
 <meta property="og:site_name" content="漠·然">
+<meta property="og:description" content="YAML Ain’t a Markup Language.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-21T14:52:31.853Z">
+<meta property="og:updated_time" content="2019-03-27T07:16:04.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yaml">
+<meta name="twitter:description" content="YAML Ain’t a Markup Language.">
 
 
 
@@ -385,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-21 22:52:31" itemprop="dateModified" datetime="2018-11-21T22:52:31+08:00">2018-11-21</time>
+                <time title="修改时间：2019-03-27 15:16:04" itemprop="dateModified" datetime="2019-03-27T15:16:04+08:00">2019-03-27</time>
               
             
           </span>
@@ -461,7 +464,54 @@
       
 
       
-        
+        <p>YAML Ain’t a Markup Language.</p>
+<a id="more"></a>
+<h1 id="0-简介"><a href="#0-简介" class="headerlink" title="0. 简介"></a>0. 简介</h1><p>Yaml是用来编写配置文件的，对比同样是用来编写配置文件的JSON，Yaml非常简洁和强大，也远比JSON方便。</p>
+<p>YAML的定义即为“YAML Ain’t a Markup Language.”的递归缩写。YAML是以数据为设计语言的重点的，而不是像XML以标记为重点。也正是这种设计理念，使它成为了一种可读性高，易于表达数据序列的编程语言。</p>
+<h1 id="1-语法规则"><a href="#1-语法规则" class="headerlink" title="1. 语法规则"></a>1. 语法规则</h1><p>YAML的语法规则非常简单，只要记住以下四条：</p>
+<blockquote>
+<ul>
+<li>YAML是大小写敏感的</li>
+<li>YAML使用缩进来表示层级关系</li>
+<li>YAML只允许使用空格缩进，禁止使用Tab键</li>
+<li>缩进的空格数目没有限制，只要保持相同层级的元素对齐即可。</li>
+</ul>
+</blockquote>
+<p>YAML支持的数据结构有以下四种。</p>
+<blockquote>
+<ul>
+<li>对象： 即一个键值对的集合，用冒号表示</li>
+<li>数组： 一组按次序排列的值</li>
+<li>纯量： 单个的、不可再分的值，即String， Int 等类型的数值。</li>
+</ul>
+</blockquote>
+<p><strong>还要注意的一点是，冒号后面一定要加一个空格。</strong></p>
+<p>YAML的数据类型非常灵活，如： 键值对的值既可以是 <strong>纯量</strong> 类型，又可以是 <strong>数组类型</strong> ，甚至是 <strong>对象</strong>； 同样，数组中的每一个元素也都可以是 <strong>纯量</strong> 或者 <strong>对象</strong></p>
+<p>下面将分别介绍着三种数据结构。</p>
+<h1 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h1><p>对象是一组键值对，使用冒号来表示</p>
+<p>注意冒号后面一定要加空格。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">jason</span></span><br></pre></td></tr></table></figure>
+<h1 id="3-数组"><a href="#3-数组" class="headerlink" title="3. 数组"></a>3. 数组</h1><p>数组由<code>-</code> 标识，一系列元素构成一个数组</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">yellow</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">blue</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">green</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-复合结构"><a href="#4-复合结构" class="headerlink" title="4. 复合结构"></a>4. 复合结构</h1><p>正如我前面所说的，数组的每一个元素都可以是一个键值对，对象的value 也可以是一个数组</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">color:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">yellow</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">blue</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">green</span></span><br><span class="line"><span class="attr">website:</span></span><br><span class="line"><span class="attr">  baidu:</span> <span class="string">baidu.com</span></span><br><span class="line"><span class="attr">  google:</span> <span class="string">google.com</span></span><br><span class="line"><span class="attr">  apple:</span> <span class="string">apple.com</span></span><br></pre></td></tr></table></figure>
+<p>它表示的数据结构：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    color: [yellow, blue, green],</span><br><span class="line">    website:&#123;</span><br><span class="line">        baidu: baidu.com,</span><br><span class="line">        google: google.com,</span><br><span class="line">        apple: apple.com</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="5-纯量"><a href="#5-纯量" class="headerlink" title="5. 纯量"></a>5. 纯量</h1><p>纯量是最基本的。不可再分的值。以下数据类型都属于纯量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- 字符串</span><br><span class="line">- 布尔值</span><br><span class="line">- 整数</span><br><span class="line">- 浮点数</span><br><span class="line">- Null</span><br><span class="line">- 时间</span><br><span class="line">- 日期</span><br></pre></td></tr></table></figure>
+<h1 id="6-字符串"><a href="#6-字符串" class="headerlink" title="6. 字符串"></a>6. 字符串</h1><p>字符串是最常见的一种数据类型。</p>
+<p>字符串默认不使用引号表示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">str:</span> <span class="string">this_is_a_string</span></span><br></pre></td></tr></table></figure>
+<p>如果字符串之中包含了空格或者特殊字符，就需要引号</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">str:</span> <span class="string">'he says: no'</span></span><br></pre></td></tr></table></figure>
+<p>单引号和双引号都可以使用，但是 <strong>双引号不会对特殊字符转义</strong>。</p>
+<p>如果单引号之中还有单引号，必须使用两个单引号转义</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">s1:</span> <span class="string">'this is a\n string'</span>         <span class="comment"># 'this is a\\n string"</span></span><br><span class="line"><span class="attr">s2:</span> <span class="string">"this is a\n string"</span>         <span class="comment"># "this is a\n string"</span></span><br><span class="line"><span class="attr">s3:</span> <span class="string">"labor''s day"</span>               <span class="comment"># labor\'s day</span></span><br></pre></td></tr></table></figure>
+<p>字符串还可以写成多行，从第二行开始， <strong>必须有一个单空格缩进</strong>， 换行符将会被转成空格</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">str:</span> <span class="string">this</span> </span><br><span class="line"> <span class="string">is</span></span><br><span class="line"> <span class="string">a</span> <span class="string">string</span></span><br><span class="line"> <span class="comment"># this is a string</span></span><br></pre></td></tr></table></figure>
+<p>多行字符串还可以使用<code>|</code> 保留换行， 也可以使用<code>&gt;</code> 折叠换行</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">this</span> <span class="string">:</span> <span class="string">|</span></span><br><span class="line"><span class="string">  FOO</span></span><br><span class="line"><span class="string">  BAR</span></span><br><span class="line"><span class="string"></span><span class="attr">that:</span> <span class="string">&gt;</span></span><br><span class="line"><span class="string">  FOO</span></span><br><span class="line"><span class="string">  BAR</span></span><br><span class="line"><span class="string">#  &#123;this: FOO\nBAR&#125;</span></span><br><span class="line"><span class="string">#  &#123;that: FOOBAR&#125;</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -501,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/latex/" rel="prev" title="latex">
-                latex <i class="fa fa-chevron-right"></i>
+              <a href="/2018/HTMLform/" rel="prev" title="HTML表单">
+                HTML表单 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,8 +602,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -570,7 +629,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -693,6 +752,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-简介"><span class="nav-number">1.</span> <span class="nav-text">0. 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-语法规则"><span class="nav-number">2.</span> <span class="nav-text">1. 语法规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-对象"><span class="nav-number">3.</span> <span class="nav-text">2. 对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-数组"><span class="nav-number">4.</span> <span class="nav-text">3. 数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-复合结构"><span class="nav-number">5.</span> <span class="nav-text">4. 复合结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-纯量"><span class="nav-number">6.</span> <span class="nav-text">5. 纯量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-字符串"><span class="nav-number">7.</span> <span class="nav-text">6. 字符串</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
