@@ -489,7 +489,7 @@
 <ol>
 <li><p>hexo 自动生成标签页和分类页的问题。</p>
 <p>1.1 hexo不能自动生成分类页 <code>categories/index.html</code> 和标签页 <code>tags/index.html</code> 这两个文件，之前之所以能够自动生成，那是因为之前安装了相应的插件，<br>···<br>npm install hexo-generator-category –save<br>npm install hexo-generator-tag –save<br>···<br>但是后来安装的时候并没有找到之前的教程，安装这些有用的插件，所以导致不能自动生成这两个文件。<br>1.2 使用其他的方法解决，通过命令生成页面(page)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new<span class="built_in"> page </span>categories</span><br><span class="line">hexo new<span class="built_in"> page </span>tags</span><br></pre></td></tr></table></figure>
 <p>这样就会生成对应的页面，而不是文章(post)。 再一次但是，在我看网上教程的时候，由于过于自信，导致看得不仔细，所以落掉了一个page，再一次导致了错误，过了好久才意识到这个问题。</p>
 </li>
 <li><p>一台主机关联多个GitHub账户时，使用密钥认证的问题。<br>之所以遇到这个问题是因为像之前说的那样，不想让周围认识的人发现这个博客。当时被别人拉到一个合作项目中，就暴露了之前的账号，所以简单粗暴地进行了删库处理，又注册了这个新的账号maneback。 之所以害怕被人发现，是因为感觉自己写的很菜很水，所以就还是写来自己看吧，当写作水平和思考深度上升到一定水平之后，再考虑放出来。<br>而解决这个问题的办法，也是简单粗暴地将原来的密钥文件删除处理了。</p>
@@ -619,7 +619,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -631,12 +631,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -705,7 +699,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

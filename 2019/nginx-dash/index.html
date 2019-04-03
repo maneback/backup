@@ -490,14 +490,14 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -c:a aac -b:a 500k -vn -strict -2 video_audio_500k.mp4</span><br></pre></td></tr></table></figure>
 <h1 id="生成DASH切片以及mpd文件"><a href="#生成DASH切片以及mpd文件" class="headerlink" title="生成DASH切片以及mpd文件"></a>生成DASH切片以及mpd文件</h1><p>在生成切片时我选择的是Bento4工具集中的mp4fragment和mp4dash。</p>
 <p>还有另外一个工具mp4box，但是生成的dash文件推送到服务器之后请求会出错，某作者用了mp4box之后因为出错还是转向了Bento4工具集。因此我为了稳（偷）妥（懒），就不再去踩坑mp4box了。两个文件都在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Bento/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Bento/</span>bin</span><br></pre></td></tr></table></figure>
 <p>文件夹当中，把Bento安装到任意位置后，将该位置加到环境变量中，就可以更加方便使用了。</p>
 <p>mdp文件描述了mpeg dash码流的构成，其实是一个XML文档，通过mpd可以构造出用于HTTP GET下载视频的URL。</p>
 <p>处理流程主要是两步，首先使用<code>mp4fragment</code>生成视频的<code>fragment</code> （我也不知道该怎么理解）再用<code>mp4box</code> 来进行下一步的处理就行了。</p>
 <p>当然你忘记了<code>mp4fragment</code> 命令也没事，要是直接运行<code>mp4box</code>的话，它会报错提醒你</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file 1 is not fragmented (use mp4fragment to fragment it)</span><br></pre></td></tr></table></figure>
 <p>反正就记住有两步，先用<code>mp4fragment</code> 再用<code>mp4dash</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mp4fragment video_320x180_250k.mp4 video_320x180_250k_f.mp4</span><br><span class="line">mp4fragment video_320x180_500k.mp4 video_320x180_500k_f.mp4</span><br><span class="line">mp4fragment video_320x180_750k.mp4 video_320x180_750k_f.mp4</span><br><span class="line"><span class="meta"> #</span> 当然还有音频的fragment</span><br><span class="line">mp4fragment video_audio_500k.mp4 video_audio500k.f.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mp4fragment video_320x180_250k.mp4 video_320x180_250k_f.mp4</span><br><span class="line">mp4fragment video_320x180_500k.mp4 video_320x180_500k_f.mp4</span><br><span class="line">mp4fragment video_320x180_750k.mp4 video_320x180_750k_f.mp4</span><br><span class="line"><span class="meta"> #</span><span class="bash"> 当然还有音频的fragment</span></span><br><span class="line">mp4fragment video_audio_500k.mp4 video_audio500k.f.mp4</span><br></pre></td></tr></table></figure>
 <p>终于来到了最后一步，进行切片，生成mpd文件以及视频片段:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp4dash video_320x180_250k_f.mp4 video_320x180_500k_f.mp4 video_320x180_750k_f.mp4 video_audio500k.f.mp4</span><br></pre></td></tr></table></figure>
 <p>最后它会生成一个<code>output</code> 文件夹，里面包含了一个mpd文件，和一个包含视频片段的文件夹。</p>
@@ -507,7 +507,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/log/nginx/access.log</span><br></pre></td></tr></table></figure>
 <p>就可以实时查看播放器正在请求那个bitrete的数据了。</p>
 <h1 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h1><p>在我最初的时候，我生成了一个bitrate的文件，测试能否请求。但是当我生成两个不同bitrate文件的fragment，再使用mp4dash命令时候，它会报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MP4dash video tracks are not &quot;aligned&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MP4dash <span class="selector-tag">video</span> tracks are not <span class="string">"aligned"</span></span><br></pre></td></tr></table></figure>
 <p>但是当我写这篇文章的时候，报错又不能复现了，所以我感觉是我当时敲命令时候拉下了什么。</p>
 <p>这个错误字面理解就是文件没有对齐，好像跟视频的GOP有关。我的理解就是，比如说，file1 的第一个fragment是0-10s， file2的第一个fragment是0-12s这样的话，每个fragment不是对应相同的视频片段，就会导致出错，反正具体我也不懂。在网上查解决方案时发现这个遇到这个错误的人还不少，而且好像都没有解决方法，连github上面的issue都没有人给出解答。当时都打算放弃Bento改用mp4box试一试了。结果我又看了一遍<a href="https://ffmpeg.org/ffmpeg.html#Complex-filtergraphs-1" title="ffmpeg" target="_blank" rel="noopener"><code>ffmpeg</code></a> 和<a href="https://www.bento4.com/developers/dash/" target="_blank" rel="noopener"><code>Bento</code></a>的官网，试了一下设置更多地参数，结果完美解决了问题。</p>
 <p>解决方法如下：</p>
@@ -656,7 +656,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -668,12 +668,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
-                    
-                      
-                    
-                      
                     
                       
                     
@@ -742,7 +736,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
