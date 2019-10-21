@@ -1985,7 +1985,11 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
+<<<<<<< HEAD
   background: #835d13;
+=======
+  background: #98f4ff;
+>>>>>>> 596653a8e7d398bcb78530f95879c02fbde09a63
 }
 .links-of-blogroll {
   font-size: 13px;
