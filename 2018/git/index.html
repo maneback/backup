@@ -99,14 +99,14 @@
   <meta name="description" content="记录一些常用的Git命令">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git">
+<meta property="og:title" content="一些简单的git操作命令">
 <meta property="og:url" content="http://maneback.github.io/2018/git/index.html">
 <meta property="og:site_name" content="漠·然">
 <meta property="og:description" content="记录一些常用的Git命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-08T02:35:00.927Z">
+<meta property="og:updated_time" content="2020-01-16T14:55:52.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git">
+<meta name="twitter:title" content="一些简单的git操作命令">
 <meta name="twitter:description" content="记录一些常用的Git命令">
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>git | 漠·然</title>
+  <title>一些简单的git操作命令 | 漠·然</title>
   
 
 
@@ -346,7 +346,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git
+          <h1 class="post-title" itemprop="name headline">一些简单的git操作命令
 
               
             
@@ -418,7 +418,7 @@
 
           
           
-            <span id="/2018/git/" class="leancloud_visitors" data-flag-title="git">
+            <span id="/2018/git/" class="leancloud_visitors" data-flag-title="一些简单的git操作命令">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -468,15 +468,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf false</span><br><span class="line">git config --global core.safecrlf false</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>git tag 使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 列出所有标签</span></span><br><span class="line">git tag </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 打标签</span></span><br><span class="line">git tag 1.0.1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">切换到标签</span></span><br><span class="line">git checkout &lt;tagname&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">删除标签</span></span><br><span class="line">git tag -d 1.0.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 列出所有标签</span><br><span class="line">git tag </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 打标签</span><br><span class="line">git tag 1.0.1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>切换到标签</span><br><span class="line">git checkout &lt;tagname&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>删除标签</span><br><span class="line">git tag -d 1.0.1</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>通常，git push 操作不会将标签对象提交到git服务器，我们需要进行显示的操作<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin 1.0.1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提交所有本地标签</span></span><br><span class="line">git push origin -tags</span><br></pre></td></tr></table></figure></p>
+<p>通常，git push 操作不会将标签对象提交到git服务器，我们需要进行显示的操作<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin 1.0.1</span><br><span class="line"><span class="meta">#</span> 提交所有本地标签</span><br><span class="line">git push origin -tags</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>git版本回退</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard head^</span><br><span class="line">git reset --hard xxxx</span><br></pre></td></tr></table></figure>
-</li>
+<li>git版本回退</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard head^</span><br><span class="line">git reset --hard xxxx</span><br></pre></td></tr></table></figure>
+<ul>
+<li>拉取远程仓库强制覆盖本地内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
       
     </div>
