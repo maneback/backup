@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://maneback.github.io/2018/movielist/</loc>
+    
+    <lastmod>2020-03-16T01:01:44.634Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2020/2020jiaqi/</loc>
+    
+    <lastmod>2020-03-13T08:49:36.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2020/couple/</loc>
+    
+    <lastmod>2020-03-13T06:38:11.327Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2019/aiqing/</loc>
+    
+    <lastmod>2020-03-11T09:26:29.554Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2018/2018-04-01/</loc>
+    
+    <lastmod>2020-03-11T09:20:22.670Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2019/weekend/</loc>
+    
+    <lastmod>2020-03-11T09:14:52.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2020/python-functions/</loc>
+    
+    <lastmod>2020-03-11T09:13:59.545Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://maneback.github.io/2020/music-test/</loc>
+    
+    <lastmod>2020-03-10T14:21:27.306Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://maneback.github.io/2020/latex/</loc>
     
     <lastmod>2020-03-10T13:35:24.865Z</lastmod>
@@ -12,27 +68,6 @@
     <loc>http://maneback.github.io/2020/2github/</loc>
     
     <lastmod>2020-03-10T13:33:44.386Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://maneback.github.io/2020/music-test/</loc>
-    
-    <lastmod>2020-03-04T06:44:08.372Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://maneback.github.io/2018/movielist/</loc>
-    
-    <lastmod>2020-02-10T12:14:33.765Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://maneback.github.io/2020/python-functions/</loc>
-    
-    <lastmod>2020-02-10T11:39:11.296Z</lastmod>
     
   </url>
   
@@ -54,13 +89,6 @@
     <loc>http://maneback.github.io/2018/git/</loc>
     
     <lastmod>2020-01-16T14:55:52.539Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://maneback.github.io/2019/weekend/</loc>
-    
-    <lastmod>2020-01-16T14:40:09.033Z</lastmod>
     
   </url>
   
@@ -303,13 +331,6 @@
   </url>
   
   <url>
-    <loc>http://maneback.github.io/2019/aiqing/</loc>
-    
-    <lastmod>2019-04-03T09:13:18.750Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://maneback.github.io/2018/A6Avant/</loc>
     
     <lastmod>2019-04-03T07:12:54.777Z</lastmod>
@@ -320,13 +341,6 @@
     <loc>http://maneback.github.io/2019/iwagon/</loc>
     
     <lastmod>2019-04-03T07:12:37.677Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://maneback.github.io/2018/2018-04-01/</loc>
-    
-    <lastmod>2019-04-01T14:01:33.362Z</lastmod>
     
   </url>
   
